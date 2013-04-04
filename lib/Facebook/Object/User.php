@@ -2,7 +2,7 @@
 
 namespace Facebook\Object;
 
-class User
+class User implements \ArrayAccess
 {
     private $container = array();
 
@@ -14,6 +14,21 @@ class User
     public function toArray()
     {
         return $this->container;
+    }
+
+    public function __toString()
+    {
+        return sprintf('%s %s', $this->getFirstName(), $this->getLastName());
+    }
+
+    public function getFirstName()
+    {
+        return isset($this->container['first_name']) ? $this->container['first_name'] : null;
+    }
+
+    public function getLastName()
+    {
+        return isset($this->container['last_name']) ? $this->container['last_name'] : null;
     }
 
     // ArrayAccess
