@@ -5,6 +5,7 @@ namespace Facebook;
 use Facebook\Object\User;
 use Facebook\Exception\GraphMethodException;
 use Facebook\Exception\OAuthException;
+use Buzz\Message\Response;
 
 class Consumer
 {
@@ -42,7 +43,7 @@ class Consumer
         else return $this->handleException($response);
     }
 
-    protected function handleException($response)
+    protected function handleException(Response $response)
     {
         if($response->isClientError())
         {
