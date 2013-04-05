@@ -3,6 +3,7 @@
 namespace Facebook\Test;
 
 use Facebook\Consumer;
+use Facebook\DefaultConverter;
 use Facebook\Object\User;
 
 class ConsumerTest extends \PHPUnit_Framework_TestCase
@@ -187,6 +188,22 @@ class ConsumerTest extends \PHPUnit_Framework_TestCase
         $consumer = new Consumer($client);
         $converter = $this->getMock('Facebook\Converter', array('convert'));
         $consumer->setConverter('/me', $converter);
+    }
+
+    public function testGetConverter()
+    {
+        $client = $this->getClient();
+        $consumer = new Consumer($client);
+
+        $this->assertTrue($consumer->getConverter('/me') instanceof DefaultConverter);
+
+        $converter = $this->getMock('Facebook\Converter', array('convert'));
+        $consumer->setConverter('/me', $converter);
+
+        $this->assertEquals($converter, $consumer->getConverter('/me'));
+
+        $consumer->setConverter('/some/strange/api/method/with/strange/characters/łąóąłąłąóżżźźżąóąłąó', $converter);
+        $this->assertEquals($converter, $consumer->getConverter('/some/strange/api/method/with/strange/characters/łąóąłąłąóżżźźżąóąłąó'));
     }
 
     private function getClient()

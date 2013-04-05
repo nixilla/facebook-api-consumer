@@ -65,6 +65,8 @@ class Consumer
 
     public function getConverter($api_method)
     {
+        if(preg_match('/^\//',$api_method)) $api_method = substr($api_method, 1);
+
         if(isset($this->converters[$api_method]))
             return $this->converters[$api_method];
         else
@@ -75,6 +77,8 @@ class Consumer
     {
         if( ! $converter instanceof Converter)
             throw new \InvalidArgumentException('Second argument must implement Converter interface');
+
+        if(preg_match('/^\//',$api_method)) $api_method = substr($api_method, 1);
 
         $this->converters[$api_method] = $converter;
     }
