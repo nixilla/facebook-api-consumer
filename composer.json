@@ -1,8 +1,8 @@
 {
-    "name": "nixilla/facebook-php-sdk",
-    "description": "Facebook PHP SDK rewrite in namespaced, easy to test PHP",
+    "name": "nixilla/facebook-api-consumer",
+    "description": "Facebook API consumer in namespaced, easy to test PHP",
     "type": "library",
-    "keywords": [ "facebook", "api", "sdk" ],
+    "keywords": [ "facebook", "api", "graph" ],
     "license": "MIT",
     "authors": [
         {

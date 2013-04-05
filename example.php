@@ -5,11 +5,8 @@
 
 require_once './vendor/autoload.php';
 
-$key = 'YOUR_FACEBOOK_APP_ID';
-$secret = 'YOUR_FACEBOOK_APP_SECRET';
-
 $client = new Buzz\Browser(new Buzz\Client\Curl());
-$consumer = new Facebook\Consumer($client, $key, $secret);
+$consumer = new Facebook\Consumer($client);
 
 // get it form here: https://developers.facebook.com/tools/explorer
 $access_token = 'YOUR_ACCESS_TOKEN';
@@ -17,10 +14,8 @@ $access_token = 'YOUR_ACCESS_TOKEN';
 $consumer->setAccessToken($access_token);
 
 try {
-    $user = $consumer->getUser();
-    printf('Found user %s', $user);
-    printf("\n%s\n\n",'===================================');
-    print_r($user->toArray());
+    $user = $consumer->call('/me/feed');
+    print_r($user);
 }
 catch (Exception $e)
 {

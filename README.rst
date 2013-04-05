@@ -1,8 +1,8 @@
-facebook-php-sdk
-================
+Facebook Graph API Consumer in PHP
+==================================
 
-.. image:: https://travis-ci.org/nixilla/facebook-php-sdk.png?branch=master
+.. image:: https://travis-ci.org/nixilla/facebook-api-consumer.png?branch=master
 
-Facebook PHP SDK rewrite in namespaced, easy to test PHP
+Facebook Graph API Consumer in namespaced, easy to test PHP, continuously integrated with Travis CI.
 
 Do not use it yet, as it is not ready.
