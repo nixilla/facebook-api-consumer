@@ -106,5 +106,3 @@ For example if you are using Symfony 2 and have `AcmeDemoBundle:User` class and 
         }
     }
 
-
-@TODO - test if this is actually working
